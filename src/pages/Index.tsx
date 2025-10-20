@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import RevenueSimulator from "@/components/RevenueSimulator";
 import WhyESaas from "@/components/WhyESaas";
 import ValuationHighlight from "@/components/ValuationHighlight";
+import MarketData from "@/components/MarketData";
 import Benefits from "@/components/Benefits";
 import Credibility from "@/components/Credibility";
 import LeadForm from "@/components/LeadForm";
@@ -17,6 +18,7 @@ const Index = () => {
         <RevenueSimulator />
         <WhyESaas />
         <ValuationHighlight />
+        <MarketData />
         <Benefits />
         <Credibility />
         <LeadForm />
