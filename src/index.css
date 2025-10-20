@@ -79,4 +79,132 @@
       transform: translateY(0);
     }
   }
+
+  /* Background Effects Animations */
+  .animate-spin-slow {
+    animation: spin 60s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-particle-1 {
+    animation: particleFloat1 25s ease-in-out infinite;
+  }
+
+  .animate-particle-2 {
+    animation: particleFloat2 30s ease-in-out infinite;
+  }
+
+  .animate-particle-3 {
+    animation: particleFloat3 35s ease-in-out infinite;
+  }
+
+  .animate-scan-lines {
+    animation: scanLines 8s linear infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 15s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(0px) translateX(20px);
+    }
+    75% {
+      transform: translateY(20px) translateX(10px);
+    }
+  }
+
+  @keyframes particleFloat1 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 0;
+    }
+    10%, 90% {
+      opacity: 1;
+    }
+    50% {
+      transform: translate3d(30px, -100px, 0);
+    }
+  }
+
+  @keyframes particleFloat2 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 0;
+    }
+    10%, 90% {
+      opacity: 1;
+    }
+    50% {
+      transform: translate3d(-40px, -120px, 0);
+    }
+  }
+
+  @keyframes particleFloat3 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 0;
+    }
+    10%, 90% {
+      opacity: 1;
+    }
+    50% {
+      transform: translate3d(20px, -80px, 0);
+    }
+  }
+
+  @keyframes scanLines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(20px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    50%, 100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-spin-slow,
+    .animate-float,
+    .animate-float-delayed,
+    .animate-particle-1,
+    .animate-particle-2,
+    .animate-particle-3,
+    .animate-scan-lines,
+    .animate-shimmer {
+      animation: none;
+    }
+  }
 }
