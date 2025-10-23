@@ -90,16 +90,72 @@ const LeadForm = () => {
 
     setLoading(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setLoading(false);
-    setSubmitted(true);
-    
-    toast({
-      title: "Formulário enviado com sucesso!",
-      description: "Entraremos em contato em breve para agendar sua apresentação.",
-    });
+    try {
+      // Preparar dados com validação adicional
+      const payload = {
+        email: formData.email.trim().toLowerCase(),
+        whatsapp: formData.whatsapp.replace(/\D/g, ''),
+        instagram: formData.instagram.trim(),
+        fullName: formData.fullName.trim(),
+        position: formData.position,
+        company: formData.company.trim(),
+        revenue: formData.revenue,
+        students: formData.students,
+        investment: formData.investment,
+        timestamp: new Date().toISOString(),
+        source: 'Landing Page E-Saas',
+        userAgent: navigator.userAgent,
+        pageUrl: window.location.href
+      };
+
+      // Fazer requisição com timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+
+      const response = await fetch(
+        'https://autowebhook.aasyncferramentas.space/webhook/86ec70a1-00aa-459a-975a-1ca40fe5a562',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        }
+      );
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Erro HTTP: ${response.status}`);
+      }
+
+      setLoading(false);
+      setSubmitted(true);
+      
+      toast({
+        title: "Formulário enviado com sucesso!",
+        description: "Entraremos em contato em breve para agendar sua apresentação.",
+      });
+
+    } catch (error: any) {
+      console.error('Erro ao enviar dados:', error);
+      setLoading(false);
+      
+      let errorMessage = "Por favor, tente novamente ou entre em contato pelo WhatsApp.";
+      
+      if (error.name === 'AbortError') {
+        errorMessage = "A conexão está demorando muito. Verifique sua internet e tente novamente.";
+      } else if (error.message.includes('Failed to fetch')) {
+        errorMessage = "Sem conexão com a internet. Verifique sua conexão e tente novamente.";
+      }
+      
+      toast({
+        title: "Erro ao enviar formulário",
+        description: errorMessage,
+        variant: "destructive",
+      });
+    }
   };
 
   const progress = (step / 3) * 100;
