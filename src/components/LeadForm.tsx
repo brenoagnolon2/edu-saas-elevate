@@ -108,6 +108,8 @@ const LeadForm = () => {
         pageUrl: window.location.href
       };
 
+      console.log('🚀 Enviando dados para webhook:', payload);
+
       // Fazer requisição com timeout
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 30000);
@@ -120,11 +122,14 @@ const LeadForm = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(payload),
-          signal: controller.signal
+          signal: controller.signal,
+          mode: 'cors'
         }
       );
 
       clearTimeout(timeoutId);
+
+      console.log('✅ Resposta recebida:', response.status, response.statusText);
 
       if (!response.ok) {
         throw new Error(`Erro HTTP: ${response.status}`);
@@ -139,19 +144,27 @@ const LeadForm = () => {
       });
 
     } catch (error: any) {
-      console.error('Erro ao enviar dados:', error);
+      console.error('❌ Erro detalhado:', {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      });
+      
       setLoading(false);
       
       let errorMessage = "Por favor, tente novamente ou entre em contato pelo WhatsApp.";
+      let errorTitle = "Erro ao enviar formulário";
       
       if (error.name === 'AbortError') {
         errorMessage = "A conexão está demorando muito. Verifique sua internet e tente novamente.";
-      } else if (error.message.includes('Failed to fetch')) {
-        errorMessage = "Sem conexão com a internet. Verifique sua conexão e tente novamente.";
+      } else if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        errorTitle = "Erro de CORS ou Conexão";
+        errorMessage = "O webhook precisa estar configurado com CORS. Verifique a configuração no N8N ou teste em produção com domínio próprio.";
+        console.error('💡 Dica: Configure CORS no N8N ou use um domínio próprio');
       }
       
       toast({
-        title: "Erro ao enviar formulário",
+        title: errorTitle,
         description: errorMessage,
         variant: "destructive",
       });
