@@ -6,7 +6,7 @@ const RevenueSimulator = () => {
   const [students, setStudents] = useState(500);
   const [monthlyFee, setMonthlyFee] = useState(197);
 
-  const totalRevenue = students * monthlyFee;
+  const totalRevenue = students * monthlyFee * 12;
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('pt-BR', {
@@ -75,7 +75,7 @@ const RevenueSimulator = () => {
               {/* Result */}
               <div className="pt-6 space-y-4">
                 <div className="text-center p-8 rounded-xl bg-primary/10 border border-primary/20">
-                  <p className="text-sm text-muted-foreground mb-2">Potencial de Receita Mensal</p>
+                  <p className="text-sm text-muted-foreground mb-2">Potencial de Receita Anual</p>
                   <p className="text-5xl md:text-6xl font-bold text-gradient">
                     {formatCurrency(totalRevenue)}
                   </p>
