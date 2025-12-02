@@ -43,7 +43,7 @@ const LeadForm = () => {
           </p>
         </div>
 
-        <div className="w-full bg-card rounded-lg p-4">
+        <div className="w-full rounded-lg p-4">
           <iframe
             data-tally-src="https://tally.so/embed/D440vE?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
             loading="lazy"
