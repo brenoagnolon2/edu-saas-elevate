@@ -1,6 +1,12 @@
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const ValuationHighlight = () => {
+  const scrollToForm = () => {
+    const formElement = document.getElementById('lead-form');
+    formElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   return (
     <section className="py-16 px-4">
       <div className="max-w-[900px] mx-auto">
@@ -36,6 +42,18 @@ const ValuationHighlight = () => {
               Detalhe: sem depender tanto da sua energia na entrega, ficando independente de você assim como a construção do seu Software, que será feita por nós. 
               Mas para tudo isso ser possível, precisamos de você e do seu conhecimento e extrair esse conhecimento para estruturá-lo é a nossa especialidade há 4 anos.
             </p>
+
+            {/* CTA Button */}
+            <div className="mt-8 flex justify-center">
+              <Button
+                size="lg"
+                onClick={scrollToForm}
+                className="bg-[#6F4A95] hover:bg-[#6F4A95]/90 text-white text-lg px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              >
+                Falar com Especialista
+                <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
