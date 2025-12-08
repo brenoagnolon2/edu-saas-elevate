@@ -76,7 +76,7 @@ const RevenueSimulator = () => {
               <div className="pt-6 space-y-4">
                 <div className="text-center p-8 rounded-xl bg-primary/10 border border-primary/20">
                   <p className="text-sm text-muted-foreground mb-2">Potencial de Receita Anual</p>
-                  <p className="text-5xl md:text-6xl font-bold text-gradient">
+                  <p className="text-3xl sm:text-5xl md:text-6xl font-bold text-gradient">
                     {formatCurrency(totalRevenue)}
                   </p>
                   <p className="text-sm text-muted-foreground mt-4">
