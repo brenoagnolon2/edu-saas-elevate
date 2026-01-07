@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { DollarSign, Settings, Star, Award, Target, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DollarSign, Settings, Star, Award, Target, Check, ArrowDown } from "lucide-react";
 
 const cards = [
   {
@@ -60,6 +61,11 @@ const cards = [
 ];
 
 const WhyESaas = () => {
+  const scrollToForm = () => {
+    const formElement = document.getElementById('lead-form');
+    formElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   return (
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -101,6 +107,17 @@ const WhyESaas = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button 
+            size="lg"
+            onClick={scrollToForm}
+            className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 rounded-xl shadow-2xl shadow-primary/30 transition-all hover:scale-105"
+          >
+            Falar com Especialista
+            <ArrowDown className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </section>

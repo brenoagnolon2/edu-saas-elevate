@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import WhatIsESaas from "@/components/WhatIsESaas";
 import RevenueSimulator from "@/components/RevenueSimulator";
 import WhyESaas from "@/components/WhyESaas";
 import ValuationHighlight from "@/components/ValuationHighlight";
@@ -16,7 +15,6 @@ const Index = () => {
       <BackgroundEffects />
       <div className="relative" style={{ zIndex: 1 }}>
         <Hero />
-        <WhatIsESaas />
         <RevenueSimulator />
         <WhyESaas />
         <ValuationHighlight />

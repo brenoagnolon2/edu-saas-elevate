@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
+import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
 
 const RevenueSimulator = () => {
   const [students, setStudents] = useState(500);
   const [monthlyFee, setMonthlyFee] = useState(197);
+
+  const scrollToForm = () => {
+    const formElement = document.getElementById('lead-form');
+    formElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
 
   const totalRevenue = students * monthlyFee * 12;
 
@@ -87,6 +94,17 @@ const RevenueSimulator = () => {
             </div>
           </div>
         </Card>
+
+        <div className="mt-10 text-center">
+          <Button 
+            size="lg"
+            onClick={scrollToForm}
+            className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 rounded-xl shadow-2xl shadow-primary/30 transition-all hover:scale-105"
+          >
+            Falar com Especialista
+            <ArrowDown className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
       </div>
     </section>
   );

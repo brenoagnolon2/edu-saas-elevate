@@ -1,9 +1,15 @@
-import { TrendingUp, DollarSign, BarChart3 } from "lucide-react";
+import { TrendingUp, DollarSign, BarChart3, ArrowDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const MarketData = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const scrollToForm = () => {
+    const formElement = document.getElementById('lead-form');
+    formElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -132,6 +138,17 @@ const MarketData = () => {
           <p className="text-[#DAD5D0] text-sm">
             Fonte: Grand View Research, Distrito EdTech Report 2024, Finro Financial Consulting
           </p>
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button 
+            size="lg"
+            onClick={scrollToForm}
+            className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 rounded-xl shadow-2xl shadow-primary/30 transition-all hover:scale-105"
+          >
+            Falar com Especialista
+            <ArrowDown className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </section>
