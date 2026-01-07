@@ -1,6 +1,13 @@
 import masterpieceLogo from "@/assets/masterpiece-logo.png";
+import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
 
 const Credibility = () => {
+  const scrollToForm = () => {
+    const formElement = document.getElementById('lead-form');
+    formElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   return (
     <section className="py-20 px-4 border-t border-border/30">
       <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -34,6 +41,17 @@ const Credibility = () => {
             <p className="text-4xl font-bold text-primary">IA</p>
             <p className="text-sm text-muted-foreground">Integrada</p>
           </div>
+        </div>
+
+        <div className="mt-10">
+          <Button 
+            size="lg"
+            onClick={scrollToForm}
+            className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 rounded-xl shadow-2xl shadow-primary/30 transition-all hover:scale-105"
+          >
+            Falar com Especialista
+            <ArrowDown className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
     </section>
