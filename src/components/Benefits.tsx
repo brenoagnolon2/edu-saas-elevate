@@ -47,7 +47,7 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <Card 
               key={index}
-              className="p-8 bg-card border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 hover:scale-105 group"
+              className="p-8 bg-card border-border/50 md:hover:border-primary/50 md:transition-all md:duration-300 md:hover:shadow-2xl md:hover:shadow-primary/20 md:hover:scale-105 group"
             >
               <div className="space-y-4">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">

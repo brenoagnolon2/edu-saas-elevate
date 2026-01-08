@@ -82,8 +82,7 @@ const WhyESaas = () => {
           {cards.map((card, index) => (
             <Card 
               key={index}
-              className="p-8 bg-primary/5 border-border/50 hover:border-primary transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 group"
-              style={{ gridColumn: index >= 3 ? 'span 1' : 'span 1' }}
+              className="p-8 bg-primary/5 border-border/50 md:hover:border-primary md:transition-all md:duration-300 md:hover:shadow-xl md:hover:shadow-primary/10 group"
             >
               <div className="space-y-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">

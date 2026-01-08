@@ -80,6 +80,15 @@
     }
   }
 
+  /* Optimize animations for mobile */
+  @media (max-width: 768px) {
+    .animate-fade-in-up {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   /* Background Effects Animations */
   .animate-spin-slow {
     animation: spin 60s linear infinite;
