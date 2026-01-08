@@ -1,6 +1,6 @@
 const BackgroundEffects = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+    <div className="fixed inset-0 pointer-events-none overflow-hidden hidden md:block" style={{ zIndex: 0 }}>
       {/* Grid Pattern Base */}
       <div 
         className="absolute inset-0 opacity-30"
