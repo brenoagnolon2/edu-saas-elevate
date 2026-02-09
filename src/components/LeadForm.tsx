@@ -11,17 +11,12 @@ const LeadForm = () => {
 
         <div className="w-full rounded-lg p-4">
           <iframe
-            src="https://app.lightforms.io/fu1WTYc?iframe=true&transparent=true"
+            src="https://app.lightforms.io/fu1WTYc?iframe=true&width=100%&height=600"
             width="100%"
             height="600"
             frameBorder="0"
-            allowTransparency={true}
-            style={{
-              border: "none",
-              background: "transparent",
-            }}
+            style={{ border: "none" }}
             title="Formulário de Agendamento"
-            className="rounded-lg"
           />
         </div>
       </div>
