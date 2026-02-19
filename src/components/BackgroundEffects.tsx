@@ -1,6 +1,6 @@
 const BackgroundEffects = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden hidden md:block" style={{ zIndex: 0 }}>
+    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
       {/* Grid Pattern Base */}
       <div 
         className="absolute inset-0 opacity-30"
@@ -153,7 +153,7 @@ const BackgroundEffects = () => {
 
       {/* Scan Lines */}
       <div 
-        className="absolute inset-0 opacity-20 animate-scan-lines"
+        className="absolute inset-0 opacity-20 animate-scan-lines hidden md:block"
         style={{
           backgroundImage: 'repeating-linear-gradient(0deg, rgba(218, 213, 208, 0.02) 0px, rgba(218, 213, 208, 0.02) 2px, transparent 2px, transparent 6px)',
         }}
