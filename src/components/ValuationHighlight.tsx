@@ -16,11 +16,6 @@ const ValuationHighlight = () => {
             <TrendingUp className="w-12 h-12 text-[#FFD700]" />
           </div>
 
-          {/* Title */}
-          <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-6 leading-relaxed">
-            Apenas um de todos os tópicos que você leu acima já lhe trará a clareza necessária para marcar uma conversa conosco:
-          </h2>
-
           {/* Highlighted Quote */}
           <div className="my-8">
             <p className="text-3xl md:text-4xl font-bold text-[#FFD700] text-center leading-tight">
