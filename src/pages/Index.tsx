@@ -17,7 +17,7 @@ const Index = () => {
         <Hero />
         <RevenueSimulator />
         <WhyESaas />
-        <ValuationHighlight />
+        
         <MarketData />
         <Benefits />
         <Credibility />
